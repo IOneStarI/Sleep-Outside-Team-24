@@ -15,8 +15,10 @@ function cartItemTemplate(item) {
 }
 
 export default class ShoppingCart {
-  constructor(listElement) {
+  constructor(listElement, footerElement, totalElement) {
     this.listElement = listElement;
+    this.footerElement = footerElement;
+    this.totalElement = totalElement;
   }
 
   init() {
@@ -24,12 +26,21 @@ export default class ShoppingCart {
     this.renderCart(cartItems);
   }
 
- renderCart(cartItems) {
-  if (cartItems.length === 0) {
-    this.listElement.innerHTML = `<li class="cart-empty-message">Cart is empty</li>`;
-    return;
+  renderCart(cartItems) {
+    if (cartItems.length === 0) {
+      this.listElement.innerHTML = `<li class="cart-empty-message">Cart is empty</li>`;
+      if (this.footerElement) this.footerElement.classList.add('hide');
+      return;
+    }
+
+    const html = cartItems.map(cartItemTemplate).join('');
+    renderWithTemplate(html, this.listElement);
+
+    const total = cartItems.reduce((sum, item) => sum + item.FinalPrice, 0);
+
+    if (this.footerElement && this.totalElement) {
+      this.footerElement.classList.remove('hide');
+      this.totalElement.textContent = `Total: $${total.toFixed(2)}`;
+    }
   }
-  const html = cartItems.map(cartItemTemplate).join('');
-  renderWithTemplate(html, this.listElement);
-}
 }
