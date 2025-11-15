@@ -168,6 +168,45 @@ button {
   color: var(--dark-grey);
 }
 
+/*Category styles*/
+.category-list {
+  display: flex;
+  justify-content: center;
+  gap: 5em;
+  list-style: none;
+  padding: 0;
+  margin: 1em 0;
+}
+
+.category-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category-list a {
+  text-decoration: none;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category-list img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 0.5em;
+}
+
+.category-label {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 0.5em;
+  text-align: center;
+  color: #222;
+}
+
 /* Styles for product lists */
 .product-card {
   flex: 1 1 45%;
