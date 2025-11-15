@@ -35,11 +35,11 @@ function productDetailsTemplate(product) {
   const nameElem = document.querySelector('h3');
   if (nameElem) nameElem.textContent = product.NameWithoutBrand || '';
 
-  const productImage = document.getElementById('productImage');
-  if (productImage) {
-    productImage.src = product.Image || '';
-    productImage.alt = product.NameWithoutBrand || 'Product image';
-  }
+const productImage = document.getElementById('productImage');
+if (productImage) {
+  productImage.src = product.Images?.PrimaryLarge || '';
+  productImage.alt = product.NameWithoutBrand || 'Product image';
+}
 
   const priceElem = document.getElementById('productPrice');
   if (priceElem) priceElem.textContent = product.FinalPrice ? `$${product.FinalPrice.toFixed(2)}` : '';
