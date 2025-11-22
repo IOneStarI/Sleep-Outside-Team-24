@@ -290,6 +290,86 @@ button {
   grid-column: 3;
 }
 
+/* Checkout form */
+.checkout-title {
+  font-family: var(--font-headline);
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  text-align: center;
+  margin: 2rem 0 1.5rem 0;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+#checkout-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid var(--light-grey);
+  background-color: #fafafa;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+  font-family: var(--font-body);
+}
+
+#checkout-form h2 {
+  font-family: var(--font-headline);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+#checkout-form input[type="text"],
+#checkout-form input[type="email"],
+#checkout-form input[type="tel"],
+#checkout-form input[type="number"] {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1em;
+  font-size: var(--font-base);
+  border: 1px solid var(--light-grey);
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+#checkout-form input[type="text"]:focus,
+#checkout-form input[type="email"]:focus,
+#checkout-form input[type="tel"]:focus,
+#checkout-form input[type="number"]:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+#checkout-form p {
+  font-size: var(--font-base);
+  margin-bottom: 0.5rem;
+  color: var(--dark-grey);
+}
+
+#checkout-form p strong {
+  color: var(--secondary-color);
+}
+
+.checkout-button {
+  margin-top: 1.5rem;
+  padding: 0.75rem 3rem;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 5px;
+  font-size: var(--large-font);
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  width: 100%;
+}
+
+.checkout-button:hover {
+  background-color: var(--tertiary-color);
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
