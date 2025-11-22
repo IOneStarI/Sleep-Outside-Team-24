@@ -15,12 +15,23 @@ export default class ProductDetails {
       .addEventListener('click', this.addProductToCart.bind(this));
   }
 
-  addProductToCart() {
-    let cart = getLocalStorage("so-cart") || [];
+addProductToCart() {
+  let cart = getLocalStorage("so-cart") || [];
+  const productId = this.product.Id;
+  const existingItem = cart.find(item => item.Id === productId);
+
+  if (existingItem) {
+    existingItem.quantity = (existingItem.quantity || 1) + 1;
+    alertMessage("Product quantity increased in cart!");
+  } else {
+    this.product.quantity = 1;
     cart.push(this.product);
-    setLocalStorage("so-cart", cart);
     alertMessage("Product added to cart!");
   }
+
+  setLocalStorage("so-cart", cart);
+}
+
 
 renderProductDetails() {
   productDetailsTemplate(this.product);

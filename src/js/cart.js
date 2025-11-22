@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const cart = JSON.parse(localStorage.getItem('so-cart') || "[]");
       if (cart.length === 0) {
         alert("Your cart is empty! Please add items before checking out.");
-        // DO NOT navigate forward!
         return;
       }
       window.location.href = '../checkout/index.html';
