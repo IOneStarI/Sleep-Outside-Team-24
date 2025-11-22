@@ -1,4 +1,5 @@
 import ExternalServices from "./ExternalServices.mjs";
+import { alertMessage } from './utils.mjs';
 
 export default class CheckoutProcess {
   constructor(key, outputSelector) {
@@ -74,16 +75,17 @@ checkout(form) {
       };
 
       try {
-        const response = await ExternalServices.checkout(order);
-        console.log('Order submitted successfully:', response);
-        alert('Order placed successfully!');
-        localStorage.removeItem('so-cart');
-        window.location.href = "../index.html";
-      } catch (error) {
-        console.error('Order submission failed:', error);
-        alert('Order submission failed. Please try again.');
+      const response = await ExternalServices.checkout(order);
+      localStorage.removeItem('so-cart');
+      window.location.href = "./success.html";
+    } catch (error) {
+      let errMsg = "Order submission failed. Please check your form and try again.";
+      if (error.name === 'servicesError' && error.message && error.message.message) {
+        errMsg = error.message.message;
       }
-    });
+      alertMessage(errMsg, true); 
+    }
+  });
 }
 }
 
