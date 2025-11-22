@@ -364,10 +364,36 @@ button {
   transition: background-color 0.3s ease;
   display: block;
   width: 100%;
+  text-align: center;
+  text-decoration: none;
 }
 
 .checkout-button:hover {
   background-color: var(--tertiary-color);
+}
+
+.success-text {
+  text-align: center;
+}
+
+.alert {
+  background: #ffeaea;
+  border: 1px solid #d76565;
+  color: #a73232;
+  padding: 1em;
+  margin: 0.5em 0 1em 0;
+  border-radius: 5px;
+  font-size: 1.1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.alert__close {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  color: #a73232;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 500px) {
